@@ -13,9 +13,8 @@ import lombok.*;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "customer_id")
-    private Long id;
+    @Column(name = "meter_number", unique = true)
+    private String id;
 
     @Column(name = "full_name", nullable = false)
     private String fullName;
@@ -23,7 +22,7 @@ public class Customer {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(name = "phone_number", nullable = false, length = 20)
+    @Column(name = "phone_number", unique = true, nullable = false, length = 20)
     private String phoneNumber;
 
     @Column(nullable = false, length = 100)
