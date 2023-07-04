@@ -2,6 +2,10 @@ package com.sunpower.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "customer")
@@ -27,5 +31,13 @@ public class Customer {
 
     @Column(nullable = false, length = 100)
     private String password;
+
+    @CreationTimestamp
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "last_modified_at")
+    private LocalDateTime modifiedAt;
 
 }
