@@ -13,5 +13,5 @@ import java.math.BigDecimal;
 public class Data {
     private String meterNumber;
     private String customerName;
-    private int units;
+    private String units;
 }

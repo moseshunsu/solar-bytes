@@ -10,6 +10,16 @@ public class ResponseUtils {
     public static final String PASSWORD_MISMATCH_MESSAGE = "Passwords provided do mot match!";
     public static final String SUCCESS = "003";
     public static final String USER_SUCCESS_MESSAGE = "Customer registration successful!";
+    public static final String PRODUCT_EXISTS_CODE = "004";
+    public static final String PRODUCT_EXISTS_MESSAGE = "Product with provided units already exists!";
+    public static final String PRODUCT_SUCCESS_CODE = "005";
+    public static final String PRODUCT_SUCCESS_MESSAGE = "Product registration successful!";
+    public static final String TRANSACTION_SUCCESS_CODE = "006";
+    public static final String TRANSACTION_SUCCESS_MESSAGE = "Units purchased successful!";
+    public static final String INVALID_METER_CODE = "007";
+    public static final String INVALID_METER_MESSAGE = "Invalid meter number!";
+    public static final String FAQ_SUCCESS_CODE = "008";
+    public static final String FAQ_SUCCESS_MESSAGE = "FAQ successfully entered!";
 
     public static String generateMeterNumber(int length) {
         String meterNumber = "";
