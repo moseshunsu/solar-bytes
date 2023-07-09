@@ -9,6 +9,8 @@ import com.sunpower.service.CustomerServ;
 import com.sunpower.utils.ResponseUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class CustomerServImpl implements CustomerServ {
 
@@ -21,7 +23,8 @@ public class CustomerServImpl implements CustomerServ {
     @Override
     public Response registerCustomer(CustomerRequest customerRequest) {
 
-        boolean isCustomerExists = customerRepo.existsByEmail(customerRequest.getEmail());
+        boolean isCustomerExists = customerRepo.existsByEmailOrPhoneNumber(customerRequest.getEmail(),
+                customerRequest.getPhoneNumber());
 
         if (isCustomerExists) {
             return Response.builder()

@@ -1,6 +1,9 @@
 package com.sunpower.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -17,7 +20,7 @@ import java.time.LocalDateTime;
 public class Customer {
 
     @Id
-    @Column(name = "meter_number", unique = true)
+    @Column(name = "meter_number")
     private String id;
 
     @Column(name = "full_name", nullable = false)
