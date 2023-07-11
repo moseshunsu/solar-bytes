@@ -1,10 +1,10 @@
-package com.sunpower.service.impl;
+package com.sunpower.service.impl.productsServImpl;
 
 import com.sunpower.dto.Response;
-import com.sunpower.dto.SolarUnitsRequest;
-import com.sunpower.entity.SolarUnits;
-import com.sunpower.repository.SolarUnitsRepo;
-import com.sunpower.service.SolarUnitsServ;
+import com.sunpower.dto.productsDto.SolarUnitsRequest;
+import com.sunpower.entity.products.SolarUnits;
+import com.sunpower.repository.ProductsRepo.SolarUnitsRepo;
+import com.sunpower.service.productsSevice.SolarUnitsServ;
 import com.sunpower.utils.ResponseUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

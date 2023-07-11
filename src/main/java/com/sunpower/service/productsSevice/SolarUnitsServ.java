@@ -1,7 +1,7 @@
-package com.sunpower.service;
+package com.sunpower.service.productsSevice;
 
 import com.sunpower.dto.Response;
-import com.sunpower.dto.SolarUnitsRequest;
+import com.sunpower.dto.productsDto.SolarUnitsRequest;
 import org.springframework.http.ResponseEntity;
 
 public interface SolarUnitsServ {
