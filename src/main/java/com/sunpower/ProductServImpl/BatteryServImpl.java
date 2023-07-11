@@ -5,6 +5,7 @@ import com.sunpower.ProductRepo.BatteryRepo;
 import com.sunpower.ProductResponse.Response;
 import com.sunpower.ProductSevice.BatteryServ;
 import com.sunpower.Products.Battery;
+import com.sunpower.utils.ResponseUtils;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,8 +22,8 @@ public class BatteryServImpl implements BatteryServ {
         boolean isBatteryExist= batteryRepo.existsByName(batteryRequest.getName());
         if (isBatteryExist){
             return Response.builder()
-                    .responseCode(com.sunpower.ProductUtils.ResponseUtils.PRODUCT_EXISTS_CODE)
-                    .responseMessage(com.sunpower.ProductUtils.ResponseUtils.PRODUCT_EXISTS_MESSAGE)
+                    .responseCode(ResponseUtils.PRODUCT_EXISTS_CODE)
+                    .responseMessage(ResponseUtils.PRODUCT_EXISTS_MESSAGE)
                     .build();
 
         }
@@ -37,8 +38,8 @@ public class BatteryServImpl implements BatteryServ {
         Battery savedBattery=batteryRepo.save(battery);
 
         return Response.builder()
-                .responseCode(com.sunpower.ProductUtils.ResponseUtils.SUCCESS)
-                .responseMessage(com.sunpower.ProductUtils.ResponseUtils.PRODUCT_SUCCESS_MESSAGE)
+                .responseCode(ResponseUtils.SUCCESS)
+                .responseMessage(ResponseUtils.PRODUCT_SUCCESS_MESSAGE)
                 .build();
 
     }

@@ -5,6 +5,7 @@ import com.sunpower.ProductRepo.InverterRepo;
 import com.sunpower.ProductResponse.Response;
 import com.sunpower.ProductSevice.InverterServ;
 import com.sunpower.Products.Inverter;
+import com.sunpower.utils.ResponseUtils;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,8 +20,8 @@ public class InverterServImpl implements InverterServ {
         boolean isBatteryExist= inverterRepo.existsByName(inverterRequest.getName());
         if (isBatteryExist) {
             return Response.builder()
-                    .responseCode(com.sunpower.ProductUtils.ResponseUtils.PRODUCT_EXISTS_CODE)
-                    .responseMessage(com.sunpower.ProductUtils.ResponseUtils.PRODUCT_EXISTS_MESSAGE)
+                    .responseCode(ResponseUtils.PRODUCT_EXISTS_CODE)
+                    .responseMessage(ResponseUtils.PRODUCT_EXISTS_MESSAGE)
                     .build();
         }
 
@@ -32,11 +33,11 @@ public class InverterServImpl implements InverterServ {
                     .amount(inverterRequest.getAmount())
                     .build();
 
-            Inverter savedInverter=inverterRepo.save(inverter);
+            Inverter savedInverter = inverterRepo.save(inverter);
 
         return Response.builder()
-                .responseCode(com.sunpower.ProductUtils.ResponseUtils.SUCCESS)
-                .responseMessage(com.sunpower.ProductUtils.ResponseUtils.PRODUCT_SUCCESS_MESSAGE)
+                .responseCode(ResponseUtils.SUCCESS)
+                .responseMessage(ResponseUtils.PRODUCT_SUCCESS_MESSAGE)
                 .build();
     }
 }
