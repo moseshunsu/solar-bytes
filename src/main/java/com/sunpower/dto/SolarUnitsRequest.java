@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ProductRequest {
+public class SolarUnitsRequest {
     private BigDecimal amount;
     private String units;
     private String description;

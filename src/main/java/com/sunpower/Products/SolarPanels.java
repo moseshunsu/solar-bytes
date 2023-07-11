@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @Entity
 @Builder
-@Table(name = "Solar_Panels")
+@Table(name = "solar_panel")
 public class SolarPanels {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

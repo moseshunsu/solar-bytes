@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product {
+public class SolarUnits {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
