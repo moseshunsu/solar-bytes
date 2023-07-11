@@ -1,9 +1,6 @@
 package com.sunpower.Products;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -12,12 +9,14 @@ import lombok.*;
 @Setter
 @Getter
 @Builder
+@Table(name = "Inverter")
 public class Inverter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String componentPower;
+    private String batteryVoltageRange;
     private String componentEfficiency;
     private String productWarranty;
+    private double amount;
 }
