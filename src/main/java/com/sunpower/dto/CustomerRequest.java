@@ -15,5 +15,6 @@ public class CustomerRequest {
     private String phoneNumber;
     private String password;
     private String confirmPassword;
+    private String username;
 
 }

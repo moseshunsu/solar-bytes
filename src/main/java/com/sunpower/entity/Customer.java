@@ -29,6 +29,9 @@ public class Customer {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(unique = true, nullable = false)
+    private String username;
+
     @Column(name = "phone_number", unique = true, nullable = false, length = 20)
     private String phoneNumber;
 
@@ -42,5 +45,8 @@ public class Customer {
     @UpdateTimestamp
     @Column(name = "last_modified_at")
     private LocalDateTime modifiedAt;
+
+    @Column(name = "roles")
+    private String role;
 
 }

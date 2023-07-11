@@ -7,6 +7,10 @@ import com.sunpower.entity.Customer;
 import com.sunpower.repository.CustomerRepo;
 import com.sunpower.service.CustomerServ;
 import com.sunpower.utils.ResponseUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -14,30 +18,31 @@ import java.util.Optional;
 @Service
 public class CustomerServImpl implements CustomerServ {
 
-    private final CustomerRepo customerRepo;
+    @Autowired
+    private CustomerRepo customerRepo;
 
-    public CustomerServImpl(CustomerRepo customerRepo) {
-        this.customerRepo = customerRepo;
-    }
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
 
     @Override
-    public Response registerCustomer(CustomerRequest customerRequest) {
+    public ResponseEntity<Response> registerCustomer(CustomerRequest customerRequest) {
 
         boolean isCustomerExists = customerRepo.existsByEmailOrPhoneNumber(customerRequest.getEmail(),
                 customerRequest.getPhoneNumber());
 
         if (isCustomerExists) {
-            return Response.builder()
+            return ResponseEntity.badRequest().body(Response.builder()
                     .responseCode(ResponseUtils.USER_EXISTS_CODE)
                     .responseMessage(ResponseUtils.USER_EXISTS_MESSAGE)
-                    .build();
+                    .build());
         }
 
         if (!customerRequest.getPassword().equals(customerRequest.getConfirmPassword())) {
-            return Response.builder()
+            return ResponseEntity.badRequest().body(Response.builder()
                     .responseCode(ResponseUtils.PASSWORD_MISMATCH_CODE)
                     .responseMessage(ResponseUtils.PASSWORD_MISMATCH_MESSAGE)
-                    .build();
+                    .build());
         }
 
         Customer customer =Customer.builder()
@@ -45,19 +50,21 @@ public class CustomerServImpl implements CustomerServ {
                 .fullName(customerRequest.getFullName())
                 .email(customerRequest.getEmail())
                 .phoneNumber(customerRequest.getPhoneNumber())
-                .password(customerRequest.getPassword())
+                .role("CUSTOMER")
+                .username(customerRequest.getUsername())
+                .password(passwordEncoder.encode(customerRequest.getPassword()))
                 .build();
 
         Customer savedCustomer = customerRepo.save(customer);
 
-        return Response.builder()
+        return ResponseEntity.status(HttpStatus.CREATED).body(Response.builder()
                 .responseCode(ResponseUtils.SUCCESS)
                 .responseMessage(ResponseUtils.USER_SUCCESS_MESSAGE)
                 .data(Data.builder()
                         .customerName(savedCustomer.getFullName())
                         .meterNumber(savedCustomer.getId())
                         .build())
-                .build();
+                .build());
 
     }
 
