@@ -28,9 +28,10 @@ public class BatteryServImpl implements BatteryServ {
         }
         Battery battery=Battery.builder()
                 .name(batteryRequest.getName())
-                .componentEfficiency(batteryRequest.getComponentEfficiency())
+                .standardVoltage(batteryRequest.getStandardVoltage())
                 .productWarranty(batteryRequest.getProductWarranty())
-                .componentPower(batteryRequest.getComponentPower())
+                .workingVoltage(batteryRequest.getWorkingVoltage())
+                .amount(batteryRequest.getAmount())
                 .build();
 
         Battery savedBattery=batteryRepo.save(battery);
