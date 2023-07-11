@@ -11,8 +11,8 @@ import lombok.Setter;
 @Getter
 public class SolarPanelRequest {
     private String name;
-    private String componentPower;
-    private String componentEfficiency;
+    private String ratingVoltage;
+    private String ratingWattage;
     private String productWarranty;
-    private String powerWarranty;
+    private double amount;
 }
