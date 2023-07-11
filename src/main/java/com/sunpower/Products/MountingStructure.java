@@ -1,9 +1,6 @@
 package com.sunpower.Products;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Setter
@@ -12,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @Entity
 @Builder
+@Table(name = "Mounting_Structure")
 public class MountingStructure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,4 +18,5 @@ public class MountingStructure {
     private String material;
     private String warranty;
     private String serviceLife;
+    private double amount;
 }

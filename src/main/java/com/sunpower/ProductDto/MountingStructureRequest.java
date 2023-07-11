@@ -14,4 +14,5 @@ public class MountingStructureRequest {
     private String material;
     private String warranty;
     private String serviceLife;
+    private double amount;
 }
