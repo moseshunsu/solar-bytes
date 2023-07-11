@@ -3,7 +3,6 @@ package com.sunpower.ProductController;
 import com.sunpower.ProductDto.BatteryRequest;
 import com.sunpower.ProductSevice.BatteryServ;
 import com.sunpower.dto.Response;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +18,8 @@ public class BatteryController {
 
     }
     @PostMapping
-    public ResponseEntity<com.sunpower.ProductResponse.Response> registerBattery(@RequestBody BatteryRequest batteryRequest) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(batteryServ.registerBattery(batteryRequest));
+    public ResponseEntity<Response> registerBattery(@RequestBody BatteryRequest batteryRequest) {
+        return batteryServ.registerBattery(batteryRequest);
+//        return batteryServ.registerBattery(batteryRequest);
     }
 }

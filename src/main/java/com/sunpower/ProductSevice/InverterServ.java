@@ -1,8 +1,9 @@
 package com.sunpower.ProductSevice;
 
 import com.sunpower.ProductDto.InverterRequest;
-import com.sunpower.ProductResponse.Response;
+import com.sunpower.dto.Response;
+import org.springframework.http.ResponseEntity;
 
 public interface InverterServ {
-    Response registerInverter(InverterRequest inverterRequest);
+    ResponseEntity<Response> registerInverter(InverterRequest inverterRequest);
 }

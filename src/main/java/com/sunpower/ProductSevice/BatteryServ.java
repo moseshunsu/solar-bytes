@@ -1,8 +1,9 @@
 package com.sunpower.ProductSevice;
 
 import com.sunpower.ProductDto.BatteryRequest;
-import com.sunpower.ProductResponse.Response;
+import com.sunpower.dto.Response;
+import org.springframework.http.ResponseEntity;
 
 public interface BatteryServ {
-    Response registerBattery(BatteryRequest batteryRequest);
+    ResponseEntity<Response> registerBattery(BatteryRequest batteryRequest);
 }

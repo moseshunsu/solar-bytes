@@ -1,10 +1,8 @@
 package com.sunpower.ProductController;
 
-import com.sunpower.ProductDto.BatteryRequest;
 import com.sunpower.ProductDto.InverterRequest;
-import com.sunpower.ProductResponse.Response;
 import com.sunpower.ProductSevice.InverterServ;
-import org.springframework.http.HttpStatus;
+import com.sunpower.dto.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +20,6 @@ public class InverterController {
 
     @PostMapping
     public ResponseEntity<Response> registerInverter(@RequestBody InverterRequest inverterRequest) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(inverterServ.registerInverter(inverterRequest));
+        return inverterServ.registerInverter(inverterRequest);
     }
 }

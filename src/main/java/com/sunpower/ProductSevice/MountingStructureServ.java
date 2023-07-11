@@ -1,8 +1,9 @@
 package com.sunpower.ProductSevice;
 
 import com.sunpower.ProductDto.MountingStructureRequest;
-import com.sunpower.ProductResponse.Response;
+import com.sunpower.dto.Response;
+import org.springframework.http.ResponseEntity;
 
 public interface MountingStructureServ {
-    Response registerMountingStructure(MountingStructureRequest mountingStructureRequest);
+    ResponseEntity<Response> registerMountingStructure(MountingStructureRequest mountingStructureRequest);
 }
