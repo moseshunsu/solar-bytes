@@ -2,7 +2,7 @@ package com.sunpower.ProductServImpl;
 
 import com.sunpower.ProductDto.SolarPanelRequest;
 import com.sunpower.ProductRepo.SolarRepo;
-import com.sunpower.ProductSevice.SolarServ;
+import com.sunpower.ProductSevice.SolarPanelServ;
 import com.sunpower.Products.SolarPanels;
 import com.sunpower.dto.Response;
 import com.sunpower.utils.ResponseUtils;
@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SolarPanelsImpl implements SolarServ {
+public class SolarPanelsImpl implements SolarPanelServ {
     private final SolarRepo solarRepo;
 
     public SolarPanelsImpl(SolarRepo solarRepo) {

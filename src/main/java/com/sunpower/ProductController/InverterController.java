@@ -21,5 +21,6 @@ public class InverterController {
     @PostMapping
     public ResponseEntity<Response> registerInverter(@RequestBody InverterRequest inverterRequest) {
         return inverterServ.registerInverter(inverterRequest);
+
     }
 }

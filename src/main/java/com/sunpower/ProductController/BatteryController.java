@@ -20,6 +20,6 @@ public class BatteryController {
     @PostMapping
     public ResponseEntity<Response> registerBattery(@RequestBody BatteryRequest batteryRequest) {
         return batteryServ.registerBattery(batteryRequest);
-//        return batteryServ.registerBattery(batteryRequest);
+
     }
 }
