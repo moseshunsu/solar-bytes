@@ -1,4 +1,4 @@
-package com.sunpower.Products;
+package com.sunpower.entity.products;
 
 import jakarta.persistence.*;
 import lombok.*;

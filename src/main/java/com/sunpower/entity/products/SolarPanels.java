@@ -1,22 +1,22 @@
-package com.sunpower.Products;
+package com.sunpower.entity.products;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Builder
-@Table(name = "Battery")
-public class Battery {
+@Table(name = "solar_panel")
+public class SolarPanels {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String workingVoltage;
-    private String standardVoltage;
+    private String ratingVoltage;
+    private String ratingWattage;
     private String productWarranty;
     private double amount;
 }

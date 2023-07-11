@@ -1,18 +1,18 @@
-package com.sunpower.ProductDto;
+package com.sunpower.dto.productsDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setter
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BatteryRequest {
+@Setter
+@Getter
+public class InverterRequest {
     private String name;
-    private String workingVoltage;
-    private String standardVoltage;
+    private String batteryVoltageRange;
+    private String componentEfficiency;
     private String productWarranty;
     private double amount;
 }

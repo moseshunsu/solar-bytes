@@ -1,9 +1,9 @@
-package com.sunpower.ProductServImpl;
+package com.sunpower.service.impl.productsServImpl;
 
-import com.sunpower.ProductDto.MountingStructureRequest;
-import com.sunpower.ProductRepo.MountingStructureRepo;
-import com.sunpower.ProductSevice.MountingStructureServ;
-import com.sunpower.Products.MountingStructure;
+import com.sunpower.dto.productsDto.MountingStructureRequest;
+import com.sunpower.repository.ProductsRepo.MountingStructureRepo;
+import com.sunpower.service.productsSevice.MountingStructureServ;
+import com.sunpower.entity.products.MountingStructure;
 import com.sunpower.dto.Response;
 import com.sunpower.utils.ResponseUtils;
 import org.springframework.http.ResponseEntity;

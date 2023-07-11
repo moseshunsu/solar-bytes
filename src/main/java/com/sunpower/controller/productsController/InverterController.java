@@ -1,7 +1,7 @@
-package com.sunpower.ProductController;
+package com.sunpower.controller.productsController;
 
-import com.sunpower.ProductDto.InverterRequest;
-import com.sunpower.ProductSevice.InverterServ;
+import com.sunpower.dto.productsDto.InverterRequest;
+import com.sunpower.service.productsSevice.InverterServ;
 import com.sunpower.dto.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

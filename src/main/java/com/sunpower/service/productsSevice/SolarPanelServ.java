@@ -1,6 +1,6 @@
-package com.sunpower.ProductSevice;
+package com.sunpower.service.productsSevice;
 
-import com.sunpower.ProductDto.SolarPanelRequest;
+import com.sunpower.dto.productsDto.SolarPanelRequest;
 import com.sunpower.dto.Response;
 import org.springframework.http.ResponseEntity;
 

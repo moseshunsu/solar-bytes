@@ -1,9 +1,9 @@
-package com.sunpower.ProductServImpl;
+package com.sunpower.service.impl.productsServImpl;
 
-import com.sunpower.ProductDto.SolarPanelRequest;
-import com.sunpower.ProductRepo.SolarRepo;
-import com.sunpower.ProductSevice.SolarPanelServ;
-import com.sunpower.Products.SolarPanels;
+import com.sunpower.dto.productsDto.SolarPanelRequest;
+import com.sunpower.repository.ProductsRepo.SolarRepo;
+import com.sunpower.service.productsSevice.SolarPanelServ;
+import com.sunpower.entity.products.SolarPanels;
 import com.sunpower.dto.Response;
 import com.sunpower.utils.ResponseUtils;
 import org.springframework.http.ResponseEntity;

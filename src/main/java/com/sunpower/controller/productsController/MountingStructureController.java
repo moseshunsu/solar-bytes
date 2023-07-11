@@ -1,8 +1,8 @@
-package com.sunpower.ProductController;
+package com.sunpower.controller.productsController;
 
 
-import com.sunpower.ProductDto.MountingStructureRequest;
-import com.sunpower.ProductSevice.MountingStructureServ;
+import com.sunpower.dto.productsDto.MountingStructureRequest;
+import com.sunpower.service.productsSevice.MountingStructureServ;
 import com.sunpower.dto.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

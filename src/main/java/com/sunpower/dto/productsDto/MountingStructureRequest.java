@@ -1,4 +1,4 @@
-package com.sunpower.ProductDto;
+package com.sunpower.dto.productsDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

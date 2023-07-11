@@ -1,6 +1,6 @@
-package com.sunpower.ProductRepo;
+package com.sunpower.repository.ProductsRepo;
 
-import com.sunpower.Products.SolarPanels;
+import com.sunpower.entity.products.SolarPanels;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SolarRepo extends JpaRepository<SolarPanels, Long> {

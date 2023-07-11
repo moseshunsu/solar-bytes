@@ -1,7 +1,7 @@
-package com.sunpower.ProductController;
+package com.sunpower.controller.productsController;
 
-import com.sunpower.ProductDto.BatteryRequest;
-import com.sunpower.ProductSevice.BatteryServ;
+import com.sunpower.dto.productsDto.BatteryRequest;
+import com.sunpower.service.productsSevice.BatteryServ;
 import com.sunpower.dto.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

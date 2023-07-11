@@ -1,9 +1,9 @@
-package com.sunpower.ProductServImpl;
+package com.sunpower.service.impl.productsServImpl;
 
-import com.sunpower.ProductDto.BatteryRequest;
-import com.sunpower.ProductRepo.BatteryRepo;
-import com.sunpower.ProductSevice.BatteryServ;
-import com.sunpower.Products.Battery;
+import com.sunpower.dto.productsDto.BatteryRequest;
+import com.sunpower.repository.ProductsRepo.BatteryRepo;
+import com.sunpower.service.productsSevice.BatteryServ;
+import com.sunpower.entity.products.Battery;
 import com.sunpower.dto.Response;
 import com.sunpower.utils.ResponseUtils;
 import org.springframework.http.ResponseEntity;

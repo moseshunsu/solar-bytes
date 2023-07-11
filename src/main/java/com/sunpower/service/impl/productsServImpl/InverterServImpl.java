@@ -1,9 +1,9 @@
-package com.sunpower.ProductServImpl;
+package com.sunpower.service.impl.productsServImpl;
 
-import com.sunpower.ProductDto.InverterRequest;
-import com.sunpower.ProductRepo.InverterRepo;
-import com.sunpower.ProductSevice.InverterServ;
-import com.sunpower.Products.Inverter;
+import com.sunpower.dto.productsDto.InverterRequest;
+import com.sunpower.repository.ProductsRepo.InverterRepo;
+import com.sunpower.service.productsSevice.InverterServ;
+import com.sunpower.entity.products.Inverter;
 import com.sunpower.dto.Response;
 import com.sunpower.utils.ResponseUtils;
 import org.springframework.http.ResponseEntity;

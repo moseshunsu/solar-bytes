@@ -1,18 +1,18 @@
-package com.sunpower.ProductDto;
+package com.sunpower.dto.productsDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Setter
 @Getter
-public class SolarPanelRequest {
+@AllArgsConstructor
+@NoArgsConstructor
+public class BatteryRequest {
     private String name;
-    private String ratingVoltage;
-    private String ratingWattage;
+    private String workingVoltage;
+    private String standardVoltage;
     private String productWarranty;
     private double amount;
 }

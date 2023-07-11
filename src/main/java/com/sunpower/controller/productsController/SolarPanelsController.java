@@ -1,7 +1,7 @@
-package com.sunpower.ProductController;
+package com.sunpower.controller.productsController;
 
-import com.sunpower.ProductDto.SolarPanelRequest;
-import com.sunpower.ProductSevice.SolarPanelServ;
+import com.sunpower.dto.productsDto.SolarPanelRequest;
+import com.sunpower.service.productsSevice.SolarPanelServ;
 import com.sunpower.dto.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
