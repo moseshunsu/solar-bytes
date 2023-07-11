@@ -2,7 +2,8 @@ package com.sunpower.service;
 
 import com.sunpower.dto.CustomerRequest;
 import com.sunpower.dto.Response;
+import org.springframework.http.ResponseEntity;
 
 public interface CustomerServ {
-    Response registerCustomer(CustomerRequest customerRequest);
+    ResponseEntity<Response> registerCustomer(CustomerRequest customerRequest);
 }
