@@ -31,6 +31,7 @@ public class BatteryServImpl implements BatteryServ {
         }
         Battery battery=Battery.builder()
                 .name(batteryRequest.getName())
+                .src(batteryRequest.getSrc())
                 .standardVoltage(batteryRequest.getStandardVoltage())
                 .productWarranty(batteryRequest.getProductWarranty())
                 .workingVoltage(batteryRequest.getWorkingVoltage())

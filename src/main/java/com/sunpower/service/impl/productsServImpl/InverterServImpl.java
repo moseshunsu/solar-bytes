@@ -30,6 +30,7 @@ public class InverterServImpl implements InverterServ {
 
         Inverter inverter = Inverter.builder()
                 .name(inverterRequest.getName())
+                .src(inverterRequest.getSrc())
                 .batteryVoltageRange(inverterRequest.getBatteryVoltageRange())
                 .componentEfficiency(inverterRequest.getComponentEfficiency())
                 .productWarranty(inverterRequest.getProductWarranty())

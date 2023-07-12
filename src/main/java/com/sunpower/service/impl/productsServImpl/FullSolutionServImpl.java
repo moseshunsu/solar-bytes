@@ -31,6 +31,7 @@ public class FullSolutionServImpl implements FullSolutionServ {
 
         FullSolution fullSolution= FullSolution.builder()
                 .name(fullSolutionRequest.getName())
+                .src(fullSolutionRequest.getSrc())
                 .poweringLoads(fullSolutionRequest.getPoweringLoads())
                 .specifications(fullSolutionRequest.getSpecifications())
                 .amount(fullSolutionRequest.getAmount())

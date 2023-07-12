@@ -31,6 +31,7 @@ public class SolarPanelsImpl implements SolarPanelServ {
 
         SolarPanels solarPanels = SolarPanels.builder()
                 .name(solarPanelRequest.getName())
+                .src(solarPanelRequest.getSrc())
                 .ratingVoltage(solarPanelRequest.getRatingVoltage())
                 .ratingWattage(solarPanelRequest.getRatingWattage())
                 .productWarranty(solarPanelRequest.getProductWarranty())

@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 public class FullSolutionRequest {
     private String name;
+    private String src;
     private String specifications;
     private String poweringLoads;
     private double amount;

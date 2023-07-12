@@ -15,6 +15,7 @@ public class MountingStructure {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String model;
+    private String src;
     private String material;
     private String warranty;
     private String serviceLife;

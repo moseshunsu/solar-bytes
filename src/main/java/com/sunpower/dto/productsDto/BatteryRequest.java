@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class BatteryRequest {
     private String name;
+    private String src;
     private String workingVoltage;
     private String standardVoltage;
     private String productWarranty;

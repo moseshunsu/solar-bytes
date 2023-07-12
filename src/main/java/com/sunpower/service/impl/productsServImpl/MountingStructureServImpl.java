@@ -31,6 +31,7 @@ public class MountingStructureServImpl implements MountingStructureServ {
 
         MountingStructure mountingStructure = MountingStructure.builder()
                 .model(mountingStructureRequest.getModel())
+                .src(mountingStructureRequest.getSrc())
                 .material(mountingStructureRequest.getMaterial())
                 .serviceLife(mountingStructureRequest.getServiceLife())
                 .warranty(mountingStructureRequest.getWarranty())

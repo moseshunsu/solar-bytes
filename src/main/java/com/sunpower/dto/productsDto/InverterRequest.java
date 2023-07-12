@@ -11,6 +11,7 @@ import lombok.Setter;
 @Getter
 public class InverterRequest {
     private String name;
+    private String src;
     private String batteryVoltageRange;
     private String componentEfficiency;
     private String productWarranty;

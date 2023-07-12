@@ -15,6 +15,7 @@ public class SolarPanels {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String src;
     private String ratingVoltage;
     private String ratingWattage;
     private String productWarranty;

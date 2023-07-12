@@ -14,6 +14,7 @@ public class Inverter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String src;
     private String name;
     private String batteryVoltageRange;
     private String componentEfficiency;

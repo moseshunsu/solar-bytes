@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class MountingStructureRequest {
     private String model;
+    private String src;
     private String material;
     private String warranty;
     private String serviceLife;
