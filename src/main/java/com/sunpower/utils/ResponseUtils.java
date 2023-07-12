@@ -8,8 +8,9 @@ public class ResponseUtils {
     public static final String USER_EXISTS_MESSAGE = "Customer with provided email or username already exists!";
     public static final String PASSWORD_MISMATCH_CODE = "002";
     public static final String PASSWORD_MISMATCH_MESSAGE = "Passwords provided do not match!";
-    public static final String SUCCESS = "003";
-    public static final String USER_SUCCESS_MESSAGE = "Customer registration successful!";
+    public static final String USER_SUCCESS_CODE = "003";
+    public static final String CUSTOMER_SUCCESS_MESSAGE = "Customer registration successful!";
+    public static final String ADMIN_SUCCESS_MESSAGE = "Customer registration successful!";
     public static final String PRODUCT_EXISTS_CODE = "004";
     public static final String PRODUCT_EXISTS_MESSAGE = "Product with provided units already exists!";
     public static final String PRODUCT_SUCCESS_CODE = "005";

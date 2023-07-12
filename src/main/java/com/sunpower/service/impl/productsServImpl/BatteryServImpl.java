@@ -41,7 +41,7 @@ public class BatteryServImpl implements BatteryServ {
         Battery savedBattery=batteryRepo.save(battery);
 
         return ResponseEntity.ok(Response.builder()
-                .responseCode(ResponseUtils.SUCCESS)
+                .responseCode(ResponseUtils.PRODUCT_SUCCESS_CODE)
                 .responseMessage(ResponseUtils.PRODUCT_SUCCESS_MESSAGE)
                 .build());
 

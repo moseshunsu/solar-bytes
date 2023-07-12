@@ -4,13 +4,15 @@ import com.sunpower.dto.Data;
 import com.sunpower.dto.Response;
 import com.sunpower.dto.TransactionRequest;
 import com.sunpower.entity.Transaction;
-import com.sunpower.repository.CustomerRepo;
 import com.sunpower.repository.TransactionRepo;
+import com.sunpower.repository.UserRepo;
 import com.sunpower.service.TransactionServ;
 import com.sunpower.utils.ResponseUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class TransactionServImpl implements TransactionServ {
@@ -19,18 +21,19 @@ public class TransactionServImpl implements TransactionServ {
     private TransactionRepo transactionRepo;
 
     @Autowired
-    private CustomerRepo customerRepo;
+    private UserRepo userRepo;
 
     @Override
     public ResponseEntity<Response> saveTransaction(TransactionRequest transactionRequest) throws Exception {
 
-        boolean isMeterNumberExists = customerRepo.existsById(transactionRequest.getMeterNumber());
+        boolean isMeterNumberExists = userRepo.existsById(transactionRequest.getMeterNumber());
 
         Transaction transaction = Transaction.builder()
                 .units(transactionRequest.getUnits())
                 .amount(transactionRequest.getAmount())
-                .customer(customerRepo.findById(transactionRequest.getMeterNumber()).orElseThrow(() ->
-                        new RuntimeException(String.valueOf(new Response(ResponseUtils.INVALID_METER_CODE,
+                .user(userRepo.findById(transactionRequest.getMeterNumber()).orElseThrow(() ->
+                        new ResponseStatusException(HttpStatus.NOT_FOUND,
+                                String.valueOf(new Response(ResponseUtils.INVALID_METER_CODE,
                                 ResponseUtils.INVALID_METER_MESSAGE,
                                 new Data(transactionRequest.getMeterNumber(), null,
                                         transactionRequest.getUnits()))))))

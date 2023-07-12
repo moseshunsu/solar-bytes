@@ -1,6 +1,5 @@
 package com.sunpower.dto;
 
-import com.sunpower.entity.Customer;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

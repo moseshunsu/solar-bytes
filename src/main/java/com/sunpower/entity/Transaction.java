@@ -23,7 +23,7 @@ public class Transaction {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "meter_number", referencedColumnName = "meter_number")
     @ToString.Exclude
-    private Customer customer;
+    private User user;
 
     @Column(nullable = false)
     private BigDecimal amount;

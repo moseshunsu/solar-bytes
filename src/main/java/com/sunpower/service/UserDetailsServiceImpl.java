@@ -1,7 +1,6 @@
 package com.sunpower.service;
 
-import com.sunpower.entity.Customer;
-import com.sunpower.repository.CustomerRepo;
+import com.sunpower.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -16,16 +15,16 @@ import java.util.Collections;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private CustomerRepo customerRepo;
+    private UserRepo userRepo;
 
     @Override
     public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
 
-        Customer customer = customerRepo.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail).orElseThrow(
+        com.sunpower.entity.User user = userRepo.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail).orElseThrow(
                 () -> new UsernameNotFoundException("Details not found for this USER : " + usernameOrEmail));
 
-        return new User(usernameOrEmail, customer.getPassword(),
-                Collections.singleton(new SimpleGrantedAuthority(customer.getRole())));
+        return new User(usernameOrEmail, user.getPassword(),
+                Collections.singleton(new SimpleGrantedAuthority(user.getRole())));
 
     }
 

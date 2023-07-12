@@ -40,7 +40,7 @@ public class InverterServImpl implements InverterServ {
         Inverter savedInverter = inverterRepo.save(inverter);
 
         return ResponseEntity.ok(Response.builder()
-                .responseCode(ResponseUtils.SUCCESS)
+                .responseCode(ResponseUtils.PRODUCT_SUCCESS_CODE)
                 .responseMessage(ResponseUtils.PRODUCT_SUCCESS_MESSAGE)
                 .build());
 

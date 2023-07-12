@@ -8,7 +8,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerRequest {
+public class UserRequest {
 
     private String fullName;
     private String email;

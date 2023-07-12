@@ -41,7 +41,7 @@ public class SolarPanelsImpl implements SolarPanelServ {
         SolarPanels savedSolarPanels=solarRepo.save(solarPanels);
 
         return ResponseEntity.ok(Response.builder()
-                .responseCode(ResponseUtils.SUCCESS)
+                .responseCode(ResponseUtils.PRODUCT_SUCCESS_CODE)
                 .responseMessage(ResponseUtils.PRODUCT_SUCCESS_MESSAGE)
                 .build());
 
