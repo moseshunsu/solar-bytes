@@ -9,6 +9,7 @@ import com.sunpower.repository.TransactionRepo;
 import com.sunpower.service.TransactionServ;
 import com.sunpower.utils.ResponseUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,21 +21,10 @@ public class TransactionServImpl implements TransactionServ {
     @Autowired
     private CustomerRepo customerRepo;
 
-//    public TransactionServImpl(TransactionRepo transactionRepo) {
-//        this.transactionRepo = transactionRepo;
-//    }
-
     @Override
-    public Response saveTransaction(TransactionRequest transactionRequest) throws Exception {
+    public ResponseEntity<Response> saveTransaction(TransactionRequest transactionRequest) throws Exception {
 
         boolean isMeterNumberExists = customerRepo.existsById(transactionRequest.getMeterNumber());
-//
-//        if (!isMeterNumberExists) {
-//            return Response.builder()
-//                    .responseMessage(ResponseUtils.INVALID_METER_CODE)
-//                    .responseMessage(ResponseUtils.INVALID_METER_MESSAGE)
-//                    .build();
-//        }
 
         Transaction transaction = Transaction.builder()
                 .units(transactionRequest.getUnits())
@@ -48,10 +38,9 @@ public class TransactionServImpl implements TransactionServ {
 
         Transaction savedTransaction = transactionRepo.save(transaction);
 
-        return Response.builder()
+        return ResponseEntity.ok(Response.builder()
                 .responseCode(ResponseUtils.TRANSACTION_SUCCESS_CODE)
                 .responseMessage(ResponseUtils.TRANSACTION_SUCCESS_MESSAGE)
-                .build();
+                .build());
     }
-
 }

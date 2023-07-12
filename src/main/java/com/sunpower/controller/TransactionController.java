@@ -4,7 +4,6 @@ import com.sunpower.dto.Response;
 import com.sunpower.dto.TransactionRequest;
 import com.sunpower.service.TransactionServ;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +19,7 @@ public class TransactionController {
 
     @PostMapping
     public ResponseEntity<Response> saveTransaction(@RequestBody TransactionRequest transactionRequest) throws Exception {
-        return ResponseEntity.status(HttpStatus.OK).body(transactionServ.saveTransaction(transactionRequest));
+        return transactionServ.saveTransaction(transactionRequest);
     }
 
 }

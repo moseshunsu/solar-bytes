@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Builder
 @Entity
 public class Transaction {
@@ -21,6 +22,7 @@ public class Transaction {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "meter_number", referencedColumnName = "meter_number")
+    @ToString.Exclude
     private Customer customer;
 
     @Column(nullable = false)
