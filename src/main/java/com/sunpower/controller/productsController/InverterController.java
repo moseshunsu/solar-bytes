@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/registerInverter")
+@RequestMapping("/register-inverter")
 public class InverterController {
     public  InverterServ inverterServ;
 

@@ -22,7 +22,7 @@ public class AuthController {
     @Autowired
     private AuthService authService;
 
-    @PostMapping("/signin")
+    @PostMapping("/sign-in")
     public ResponseEntity<AuthResponse> login(@RequestBody LoginDto loginDto) {
         return ResponseEntity.ok(authService.login(loginDto));
     }

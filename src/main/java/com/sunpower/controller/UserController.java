@@ -21,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping("/register-admin")
-    public ResponseEntity<Response> registerAdmin(UserRequest userRequest) {
+    public ResponseEntity<Response> registerAdmin(@RequestBody UserRequest userRequest) {
         return userService.registerAdmin(userRequest);
     }
 

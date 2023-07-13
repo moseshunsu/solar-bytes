@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/battery")
+@RequestMapping("/register-battery")
 public class BatteryController {
     private final BatteryServ batteryServ;
     public BatteryController(BatteryServ batteryServ) {

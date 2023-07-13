@@ -1,11 +1,11 @@
 package com.sunpower.config;
 
+import com.sunpower.filter.JwtAuthenticationEntryPoint;
 import com.sunpower.filter.JwtAuthenticationFilter;
-import com.sunpower.service.UserDetailsServiceImpl;
+import com.sunpower.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -33,11 +33,13 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests( requests -> requests
-                    .requestMatchers("/register-customer").permitAll()
-                    .requestMatchers("/signin").permitAll()
-                    .requestMatchers("/register-product").hasRole("ADMIN")
-                    .requestMatchers("/transaction").hasRole("ADMIN")
-                    .requestMatchers(HttpMethod.GET, "/user").authenticated())
+                        .requestMatchers("/register-customer").permitAll()
+                        .requestMatchers( "/register-admin").hasRole("ADMIN")
+                        .requestMatchers("/sign-in").permitAll()
+                        .requestMatchers("/register-battery", "/register-battery", "/register-fullSolution",
+                            "/register-inverter", "register-mountingStructure", "register-solarPanels").hasRole("ADMIN")
+                        .requestMatchers("/transaction").authenticated()
+                        .requestMatchers("/user").authenticated())
         .formLogin(Customizer.withDefaults())
         .httpBasic(Customizer.withDefaults());
 

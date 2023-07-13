@@ -1,4 +1,4 @@
-package com.sunpower.service;
+package com.sunpower.service.impl;
 
 import com.sunpower.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;

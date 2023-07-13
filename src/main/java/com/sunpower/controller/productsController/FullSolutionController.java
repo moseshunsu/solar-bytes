@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("fullSolution")
+@RequestMapping("/register-fullSolution")
 public class FullSolutionController {
     public final FullSolutionServ fullSolutionServ;
 

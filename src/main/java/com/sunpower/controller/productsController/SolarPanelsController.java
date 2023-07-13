@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("solarPanels")
+@RequestMapping("register-solarPanels")
 public class SolarPanelsController {
     public final SolarPanelServ solarPanelServ;
 
