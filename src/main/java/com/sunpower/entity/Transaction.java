@@ -21,7 +21,7 @@ public class Transaction {
     private String transaction;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "meter_number", referencedColumnName = "meter_number")
+    @JoinColumn(name = "controller_number", referencedColumnName = "controller_number")
     @ToString.Exclude
     private User user;
 
@@ -29,7 +29,15 @@ public class Transaction {
     private BigDecimal amount;
 
     @Column(nullable = false)
+    private String district;
+
+    private String email;
+
+    @Column(nullable = false)
     private String units;
+
+    @Column(nullable = false, length = 5)
+    private String paymentReference;
 
     @CreationTimestamp
     private LocalDateTime dateTime;

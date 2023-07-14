@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Data {
-    private String meterNumber;
+    private String controllerNumber;
     private String customerName;
     private String units;
 }

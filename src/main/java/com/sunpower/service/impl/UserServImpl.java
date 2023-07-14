@@ -3,6 +3,8 @@ package com.sunpower.service.impl;
 import com.sunpower.dto.Data;
 import com.sunpower.dto.Response;
 import com.sunpower.dto.UserRequest;
+import com.sunpower.email.dto.EmailDetails;
+import com.sunpower.email.service.EmailService;
 import com.sunpower.entity.User;
 import com.sunpower.repository.UserRepo;
 import com.sunpower.service.UserService;
@@ -13,6 +15,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class UserServImpl implements UserService {
 
@@ -21,6 +27,9 @@ public class UserServImpl implements UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private EmailService emailService;
 
 
     @Override
@@ -44,7 +53,7 @@ public class UserServImpl implements UserService {
         }
 
         User customer = User.builder()
-                .meterNumber(ResponseUtils.generateMeterNumber(7))
+                .controllerNumber(ResponseUtils.generateControllerNumber(7))
                 .fullName(userRequest.getFullName())
                 .email(userRequest.getEmail())
                 .phoneNumber(userRequest.getPhoneNumber())
@@ -55,12 +64,27 @@ public class UserServImpl implements UserService {
 
         User savedCustomer = userRepo.save(customer);
 
+        EmailDetails emailDetails = EmailDetails.builder()
+                .subject("SUN POWER ACCOUNT DETAILS")
+                .recipient(savedCustomer.getEmail())
+                .messageBody(
+                        "Dear " + savedCustomer.getFullName().toUpperCase() + ", your account with Sun Power has " +
+                                "been successful created. Your  Controller No. is " +
+                                savedCustomer.getControllerNumber() + "." +
+                                "\n\nOur engineers will get in touch with you shortly to know what suits you " +
+                                "best. Subsequently, kindly login with your username or email to purchase solar units" +
+                                "\n\n\nBest Regards, \nSun Power\nIlluminating the world."
+                )
+                .build();
+
+        emailService.sendSimpleMail(emailDetails);
+
         return ResponseEntity.status(HttpStatus.CREATED).body(Response.builder()
                 .responseCode(ResponseUtils.USER_SUCCESS_CODE)
                 .responseMessage(ResponseUtils.CUSTOMER_SUCCESS_MESSAGE)
                 .data(Data.builder()
                         .customerName(savedCustomer.getFullName())
-                        .meterNumber(savedCustomer.getMeterNumber())
+                        .controllerNumber(savedCustomer.getControllerNumber())
                         .build())
                 .build());
 
@@ -87,7 +111,7 @@ public class UserServImpl implements UserService {
         }
 
         User admin = User.builder()
-                .meterNumber(ResponseUtils.generateMeterNumber(7))
+                .controllerNumber(ResponseUtils.generateControllerNumber(7))
                 .fullName(userRequest.getFullName())
                 .email(userRequest.getEmail())
                 .phoneNumber(userRequest.getPhoneNumber())
@@ -103,10 +127,44 @@ public class UserServImpl implements UserService {
                 .responseMessage(ResponseUtils.ADMIN_SUCCESS_MESSAGE)
                 .data(Data.builder()
                         .customerName(savedAdmin.getFullName())
-                        .meterNumber(savedAdmin.getMeterNumber())
+                        .controllerNumber(savedAdmin.getControllerNumber())
                         .build())
                 .build());
 
     }
+
+
+    @Override
+    public List<Response> allUsers() {
+        List<User> usersList = userRepo.findAll();
+
+        List<Response> response = new ArrayList<>();
+
+        usersList.stream().map(user -> {
+            response.add(Response.builder()
+                            .responseCode(ResponseUtils.USER_EXISTS_CODE)
+                            .data(Data.builder()
+                                    .customerName(user.getFullName())
+                                    .controllerNumber(user.getControllerNumber())
+                                    .build())
+                    .build());
+            return response;
+        }).collect(Collectors.toList());
+        return response;
+
+//        for (User user: usersList) {
+//            response.add(Response.builder()
+//                    .responseCode(ResponseUtils.SUCCESS)
+//                    .responseMessage(ResponseUtils.SUCCESS_MESSAGE)
+//                    .data(Data.builder()
+//                            .accountNumber(user.getAccountNumber())
+//                            .accountBalance(user.getAccountBalance())
+//                            .accountName(user.getFirstName() + " " + user.getLastName())
+//                            .build())
+//                    .build());
+//        }
+//        return response;
+    }
+
 
 }

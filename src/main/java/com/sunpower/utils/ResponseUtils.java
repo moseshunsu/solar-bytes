@@ -22,7 +22,7 @@ public class ResponseUtils {
     public static final String FAQ_SUCCESS_CODE = "008";
     public static final String FAQ_SUCCESS_MESSAGE = "FAQ successfully entered!";
 
-    public static String generateMeterNumber(int length) {
+    public static String generateControllerNumber(int length) {
         String meterNumber = "";
         int x;
         char[] stringChars = new char[length];

@@ -12,5 +12,8 @@ import java.math.BigDecimal;
 public class TransactionRequest {
     private BigDecimal amount;
     private String units;
-    private String meterNumber;
+    private String controllerNumber;
+    private String district;
+    private String paymentReference;
+    private String email;
 }

@@ -16,12 +16,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Long id;
 
-    @Column(name = "meter_number", unique = true)
-    private String meterNumber;
+    @Id
+    @Column(name = "controller_number", unique = true)
+    private String controllerNumber;
 
     @Column(name = "full_name", nullable = false)
     private String fullName;

@@ -38,7 +38,7 @@ public class SecurityConfig {
                         .requestMatchers("/sign-in").permitAll()
                         .requestMatchers("/register-battery", "/register-battery", "/register-fullSolution",
                             "/register-inverter", "register-mountingStructure", "register-solarPanels").hasRole("ADMIN")
-                        .requestMatchers("/transaction").authenticated()
+                        .requestMatchers("/transaction").hasRole("CUSTOMER")
                         .requestMatchers("/user").authenticated())
         .formLogin(Customizer.withDefaults())
         .httpBasic(Customizer.withDefaults());

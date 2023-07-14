@@ -26,16 +26,20 @@ public class TransactionServImpl implements TransactionServ {
     @Override
     public ResponseEntity<Response> saveTransaction(TransactionRequest transactionRequest) throws Exception {
 
-        boolean isMeterNumberExists = userRepo.existsById(transactionRequest.getMeterNumber());
+//        boolean isMeterNumberExists = userRepo.existsById(transactionRequest.getControllerNumber());
 
         Transaction transaction = Transaction.builder()
                 .units(transactionRequest.getUnits())
                 .amount(transactionRequest.getAmount())
-                .user(userRepo.findById(transactionRequest.getMeterNumber()).orElseThrow(() ->
+                .district(transactionRequest.getDistrict())
+                .paymentReference(transactionRequest.getPaymentReference())
+                .email(transactionRequest.getEmail())
+//                .user(userRepo.findByControllerNumber(transactionRequest.getControllerNumber()).get())
+                .user(userRepo.findByControllerNumber(transactionRequest.getControllerNumber()).orElseThrow(() ->
                         new ResponseStatusException(HttpStatus.NOT_FOUND,
                                 String.valueOf(new Response(ResponseUtils.INVALID_METER_CODE,
                                 ResponseUtils.INVALID_METER_MESSAGE,
-                                new Data(transactionRequest.getMeterNumber(), null,
+                                new Data(transactionRequest.getControllerNumber(), null,
                                         transactionRequest.getUnits()))))))
                 .build();
 
